@@ -50,7 +50,7 @@ def get_agent() -> Agent:
 @click.option('--api-port', '-ap', required=False, default=8888, show_default=True)
 @click.option('--name', '-n', required=False,
               help='Name or bundle identifier to attach to.', show_default=True)
-@click.option('--gadget', '-g', is_eager=True, hidden=True, deprecated="Please use '-n' or '--name' instead")
+@click.option('--gadget', '-g', is_eager=True)
 @click.option('--serial', '-S', required=False, default=None, help='A device serial to connect to.')
 @click.option('--debug', '-d', required=False, default=False, is_flag=True,
               help='Enable debug mode with verbose output.')
