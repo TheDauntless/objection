@@ -1,6 +1,8 @@
 import atexit
 from random import randint
 
+from __future__ import annotations
+
 import click
 import frida
 

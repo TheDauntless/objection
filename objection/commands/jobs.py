@@ -4,6 +4,7 @@ from tabulate import tabulate
 from objection.state.connection import state_connection
 from ..state.jobs import job_manager_state, Job
 
+from __future__ import annotations
 
 def show(args: list = None) -> None:
     """
