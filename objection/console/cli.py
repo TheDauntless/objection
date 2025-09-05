@@ -54,12 +54,11 @@ def get_agent() -> Agent:
 @click.option('--serial', '-S', required=False, default=None, help='A device serial to connect to.')
 @click.option('--debug', '-d', required=False, default=False, is_flag=True,
               help='Enable debug mode with verbose output.')
-@click.option('--pause', '-p', required=False, is_flag=False, help='Resume the target immediately.')
 @click.option('--foremost', '-f', required=False, is_flag=True, help='Use the current foremost application.')
 @click.option('--debugger', required=False, default=False, is_flag=True, help='Enable the Chrome debug port.')
 @click.option('--uid', required=False, default=None, help='Specify the uid to run as (Android only).')
 def cli(network: bool, host: str, port: int, api_host: str, api_port: int,
-        name: str, gadget: str, serial: str, debug: bool, pause: bool,
+        name: str, gadget: str, serial: str, debug: bool, spawn: bool,
         foremost: bool, debugger: bool, uid: int) -> None:
     """
         \b
@@ -74,7 +73,7 @@ def cli(network: bool, host: str, port: int, api_host: str, api_port: int,
     """
 
     spawn = True
-
+    
     if debug:
         app_state.debug = debug
 
@@ -96,7 +95,7 @@ def cli(network: bool, host: str, port: int, api_host: str, api_port: int,
 
     state_connection.name = name
     state_connection.spawn = spawn
-    state_connection.no_pause = pause
+    state_connection.no_pause = True
     state_connection.foremost = foremost
     state_connection.debugger = debugger
     state_connection.uid = uid
