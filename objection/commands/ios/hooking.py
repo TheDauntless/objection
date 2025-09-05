@@ -301,6 +301,9 @@ def search(args: list) -> None:
         :return:
     """
 
+    if args[0] == 'classes':
+        args = [args[1], "--only-classes"]
+
     if len(clean_argument_flags(args)) <= 0:
         click.secho('Usage: ios hooking search \'<pattern/string>\'', bold=True)
         return
