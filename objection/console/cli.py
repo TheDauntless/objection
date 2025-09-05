@@ -58,7 +58,7 @@ def get_agent() -> Agent:
 @click.option('--debugger', required=False, default=False, is_flag=True, help='Enable the Chrome debug port.')
 @click.option('--uid', required=False, default=None, help='Specify the uid to run as (Android only).')
 def cli(network: bool, host: str, port: int, api_host: str, api_port: int,
-        name: str, gadget: str, serial: str, debug: bool, spawn: bool,
+        name: str, gadget: str, serial: str, debug: bool,
         foremost: bool, debugger: bool, uid: int) -> None:
     """
         \b
