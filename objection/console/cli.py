@@ -126,7 +126,7 @@ def api():
               help='A script to import and run before the repl polls the device for information.')
 @click.option('--enable-api', '-a', required=False, default=False, is_flag=True,
               help='Start the objection API server.')
-def start(plugin_folder: str, quiet: bool, startup_command: str, file_commands, startup_script: click.File,
+def explore(plugin_folder: str, quiet: bool, startup_command: str, file_commands, startup_script: click.File,
           enable_api: bool) -> None:
     """
         Start a new session
@@ -190,7 +190,7 @@ def start(plugin_folder: str, quiet: bool, startup_command: str, file_commands, 
     repl.run(quiet=quiet)
 
 # Some ugly backwards compatibility
-@cli.command(deprecated="Use 'objection start' instead of 'objection explore'")
+@cli.command()
 @click.option('--plugin-folder', '-P', required=False, default=None, help='The folder to load plugins from.')
 @click.option('--quiet', '-q', required=False, default=False, is_flag=True)
 @click.option('--startup-command', '-s', required=False, multiple=True,
@@ -202,7 +202,7 @@ def start(plugin_folder: str, quiet: bool, startup_command: str, file_commands, 
               help='A script to import and run before the repl polls the device for information.')
 @click.option('--enable-api', '-a', required=False, default=False, is_flag=True,
               help='Start the objection API server.')
-def explore(plugin_folder: str, quiet: bool, startup_command: str, file_commands, startup_script: click.File,
+def start(plugin_folder: str, quiet: bool, startup_command: str, file_commands, startup_script: click.File,
             enable_api: bool) -> None:
     """
         Deprecated: Use 'start' instead.
