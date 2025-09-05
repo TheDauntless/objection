@@ -114,7 +114,7 @@ def _should_print_only_classes(args: list = None) -> bool:
         :return:
     """
 
-    return '--only-classes' in args or 'classes' in args
+    return '--only-classes' in args
 
 
 def _get_flag_value(flag: str, args: list) -> Optional[str]:
@@ -236,6 +236,14 @@ def watch(args: list = None) -> None:
         :return:
     """
 
+    if args[0] == 'class_method':
+        for index, pattern in enumerate(args):
+            if "." in pattern:
+                pattern_parts = pattern.split(".")
+                new_pattern = ".".join(pattern_parts[0:-1]) + "!" + pattern_parts[-1]
+                args[index] = new_pattern
+        args.pop(0)
+
     if len(clean_argument_flags(args)) < 1:
         click.secho('Usage: android hooking watch <package pattern> '
                     '(eg: com.example.test, *com.example*!*, com.example.test!toString)'
@@ -265,6 +273,9 @@ def search(args: list = None) -> None:
         :param args:
         :return:
     """
+
+    if args[0] == 'classes':
+        args = [args[1], "--only-classes"]
 
     if len(clean_argument_flags(args)) <= 0:
         click.secho('Usage: android hooking search \'<class>!<method>\n\''
