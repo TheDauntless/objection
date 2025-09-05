@@ -114,7 +114,7 @@ def _should_print_only_classes(args: list = None) -> bool:
         :return:
     """
 
-    return '--only-classes' in args
+    return '--only-classes' in args or 'classes' in args
 
 
 def _get_flag_value(flag: str, args: list) -> Optional[str]:
