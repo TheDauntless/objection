@@ -61,4 +61,4 @@ python/
 .DS_Store
 
 # Ignore the compiled agent.
-objection/agent.js
+# objection/agent.js

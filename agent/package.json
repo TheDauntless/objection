@@ -1,13 +1,13 @@
 {
   "name": "objection",
-  "version": "0.0.0",
+  "version": "1.12.1-K01",
   "description": "Runtime Mobile Exploration",
   "private": true,
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "frida-compile src/index.ts -o ../objection/agent.js -T none",
+    "build": "frida-compile src/index.ts -o ../objection/agent.js",
     "watch": "frida-compile src/index.ts -o ../objection/agent.js -w",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
