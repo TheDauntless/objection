@@ -78,7 +78,8 @@ def check_version() -> None:
 
         :return:
     """
-
+    return
+    
     # if we have not checked for a new version today
     if not (cached_version_data()['last_check'] > datetime.now() - timedelta(hours=23)):
         click.secho('Checking for a newer version of objection...', dim=True)
