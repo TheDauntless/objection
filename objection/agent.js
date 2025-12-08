@@ -1,5 +1,5 @@
 📦
-869680 /src/index.js
+871405 /src/index.js
 ✄
 var __defProp = Object.defineProperty;
 var __export = (target, all2) => {
@@ -20948,119 +20948,182 @@ var fileExistsCheck = (success, ident) => {
 };
 var rootBeerIsRooted = (success, ident) => {
   return wrapJavaPerform(() => {
-    const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
-    const RootBeer_isRooted = RootBeer.isRooted.overload();
-    RootBeer_isRooted.implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeer->isRooted() check detected, marking as ${colors2.green("true")}.`
-        );
-        return true;
+    try {
+      const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+      if (!RootBeer.isRooted) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeer->isRooted() check detected, marking as ${colors2.green("false")}.`
-      );
-      return false;
-    };
-    return RootBeer_isRooted;
+      const RootBeer_isRooted = RootBeer.isRooted;
+      RootBeer_isRooted.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeer->isRooted() check detected, marking as ${colors2.green("true")}.`
+          );
+          return true;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeer->isRooted() check detected, marking as ${colors2.green("false")}.`
+        );
+        return false;
+      };
+      return RootBeer_isRooted;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var rootBeerCheckForBinary = (success, ident) => {
   return wrapJavaPerform(() => {
     const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
-    RootBeer.checkForBinary.overload("java.lang.String").implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeer->checkForBinary() check detected, marking as ${colors2.green("true")}.`
-        );
-        return true;
+    try {
+      if (!RootBeer.checkForBinary) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeer->checkForBinary() check detected, marking as ${colors2.green("false")}.`
-      );
-      return false;
-    };
-    return RootBeer.checkForBinary;
+      RootBeer.checkForBinary.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeer->checkForBinary() check detected, marking as ${colors2.green("true")}.`
+          );
+          return true;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeer->checkForBinary() check detected, marking as ${colors2.green("false")}.`
+        );
+        return false;
+      };
+      return RootBeer.checkForBinary;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var rootBeerCheckForDangerousProps = (success, ident) => {
   return wrapJavaPerform(() => {
-    const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
-    RootBeer.checkForDangerousProps.overload().implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeer->checkForDangerousProps() check detected, marking as ${colors2.green("true")}.`
-        );
-        return true;
+    try {
+      const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+      if (!RootBeer.checkForDangerousProps) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeer->checkForDangerousProps() check detected, marking as ${colors2.green("false")}.`
-      );
-      return false;
-    };
-    return RootBeer.checkForDangerousProps;
+      RootBeer.checkForDangerousProps.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeer->checkForDangerousProps() check detected, marking as ${colors2.green("true")}.`
+          );
+          return true;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeer->checkForDangerousProps() check detected, marking as ${colors2.green("false")}.`
+        );
+        return false;
+      };
+      return RootBeer.checkForDangerousProps;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var rootBeerDetectRootCloakingApps = (success, ident) => {
   return wrapJavaPerform(() => {
-    const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
-    const RootBeer_detectRootCloakingApps = RootBeer.detectRootCloakingApps.overload();
-    RootBeer_detectRootCloakingApps.implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeer->detectRootCloakingApps() check detected, marking as ${colors2.green("true")}.`
-        );
-        return true;
+    try {
+      const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+      if (!RootBeer.detectRootCloakingApps) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeer->detectRootCloakingApps() check detected, marking as ${colors2.green("false")}.`
-      );
-      return false;
-    };
-    return RootBeer_detectRootCloakingApps;
+      const RootBeer_detectRootCloakingApps = RootBeer.detectRootCloakingApps;
+      RootBeer_detectRootCloakingApps.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeer->detectRootCloakingApps() check detected, marking as ${colors2.green("true")}.`
+          );
+          return true;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeer->detectRootCloakingApps() check detected, marking as ${colors2.green("false")}.`
+        );
+        return false;
+      };
+      return RootBeer_detectRootCloakingApps;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var rootBeerCheckSuExists = (success, ident) => {
   return wrapJavaPerform(() => {
-    const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
-    RootBeer.checkSuExists.overload().implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeer->checkSuExists() check detected, marking as ${colors2.green("true")}.`
-        );
-        return true;
+    try {
+      const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+      if (!RootBeer.checkSuExists) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeer->checkSuExists() check detected, marking as ${colors2.green("false")}.`
-      );
-      return false;
-    };
-    return RootBeer.checkSuExists;
+      RootBeer.checkSuExists.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeer->checkSuExists() check detected, marking as ${colors2.green("true")}.`
+          );
+          return true;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeer->checkSuExists() check detected, marking as ${colors2.green("false")}.`
+        );
+        return false;
+      };
+      return RootBeer.checkSuExists;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var rootBeerDetectTestKeys = (success, ident) => {
   return wrapJavaPerform(() => {
-    const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
-    RootBeer.detectTestKeys.overload().implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeer->detectTestKeys() check detected, marking as ${colors2.green("true")}.`
-        );
-        return true;
+    try {
+      const RootBeer = Java.use("com.scottyab.rootbeer.RootBeer");
+      if (!RootBeer.detectTestKeys) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeer->detectTestKeys() check detected, marking as ${colors2.green("false")}.`
-      );
-      return false;
-    };
-    return RootBeer.detectTestKeys;
+      RootBeer.detectTestKeys.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeer->detectTestKeys() check detected, marking as ${colors2.green("true")}.`
+          );
+          return true;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeer->detectTestKeys() check detected, marking as ${colors2.green("false")}.`
+        );
+        return false;
+      };
+      return RootBeer.detectTestKeys;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var rootBeerCheckSeLinux = (success, ident) => {
   return wrapJavaPerform(() => {
     try {
       const Util = Java.use("com.scottyab.rootbeer.util");
-      Util.isSelinuxFlagInEnabled.overload().implementation = function() {
+      if (!Util.isSelinuxFlagInEnabled) {
+        return null;
+      }
+      Util.isSelinuxFlagInEnabled.implementation = function() {
         if (success) {
           send(
             colors2.blackBright(`[${ident}]`) + `Rootbeer.util->isSelinuxFlagInEnabled() check detected, marking as ${colors2.green("true")}`
@@ -21084,21 +21147,31 @@ var rootBeerCheckSeLinux = (success, ident) => {
 };
 var rootBeerNative = (success, ident) => {
   return wrapJavaPerform(() => {
-    const RootBeerNative = Java.use("com.scottyab.rootbeer.RootBeerNative");
-    const RootBeerNative_checkForRoot = RootBeerNative.checkForRoot.overload("[Ljava.lang.Object;");
-    RootBeerNative_checkForRoot.implementation = function() {
-      if (success) {
-        send(
-          colors2.blackBright(`[${ident}] `) + `RootBeerNative->checkForRoot() check detected, marking as ${colors2.green("1")}.`
-        );
-        return 1;
+    try {
+      const RootBeerNative = Java.use("com.scottyab.rootbeer.RootBeerNative");
+      if (!RootBeerNative.checkForRoot) {
+        return null;
       }
-      send(
-        colors2.blackBright(`[${ident}] `) + `RootBeerNative->checkForRoot() check detected, marking as ${colors2.green("0")}.`
-      );
-      return 0;
-    };
-    return RootBeerNative_checkForRoot;
+      const RootBeerNative_checkForRoot = RootBeerNative.checkForRoot;
+      RootBeerNative_checkForRoot.implementation = function() {
+        if (success) {
+          send(
+            colors2.blackBright(`[${ident}] `) + `RootBeerNative->checkForRoot() check detected, marking as ${colors2.green("1")}.`
+          );
+          return 1;
+        }
+        send(
+          colors2.blackBright(`[${ident}] `) + `RootBeerNative->checkForRoot() check detected, marking as ${colors2.green("0")}.`
+        );
+        return 0;
+      };
+      return RootBeerNative_checkForRoot;
+    } catch (err) {
+      if (err.message.indexOf("java.lang.ClassNotFoundException") !== 0) {
+        throw err;
+      }
+      return null;
+    }
   });
 };
 var jailMonkeyBypass = (success, ident) => {
