@@ -322,7 +322,7 @@ class Repl(object):
  ___| |_|_|___ ___| |_|_|___ ___
 | . | . | | -_|  _|  _| | . |   |
 |___|___| |___|___|_| |_|___|_|_|
-      |___|(object)inject(ion) v{0} (SEC575-K01)
+      |___|(object)inject(ion) v{0} (SEC575-L01)
 
      Runtime Mobile Exploration
         by: @leonjza from @sensepost

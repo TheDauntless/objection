@@ -249,7 +249,7 @@ def version() -> None:
         Prints the current version and exits.
     """
 
-    click.secho('objection: {0}'.format(__version__))
+    click.secho('objection: {0}'.format(__version__) + " (SEC575-L01)")
 
 
 @cli.command()
