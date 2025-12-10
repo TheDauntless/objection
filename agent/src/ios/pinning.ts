@@ -471,7 +471,8 @@ const sSLCtxSetCustomVerify = (ident: number): NativePointerValue[] => {
   }, "int", ["pointer", "pointer"]);
 
   // tslint:disable-next-line:only-arrow-functions
-  Interceptor.replace(setCustomVerify, new NativeCallback(function (ssl, mode, callback) {
+  var ctx_verify_handle = Process.getModuleByName("libboringssl.dylib").getExportByName("SSL_CTX_set_custom_verify");
+  Interceptor.replace(ctx_verify_handle, new NativeCallback(function (ssl, mode, callback) {
     qsend(quiet,
       c.blackBright(`[${ident}] `) + `Called ` +
       c.green(`SSL_CTX_set_custom_verify()`) +
