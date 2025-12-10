@@ -477,7 +477,7 @@ const sSLCtxSetCustomVerify = (ident: number): NativePointerValue[] => {
       c.green(`SSL_CTX_set_custom_verify()`) +
       `, setting custom callback.`,
     );
-    setCustomVerify(ssl, mode, customVerifyCallback);
+    setCustomVerify(ssl, 0, customVerifyCallback);
   }, "void", ["pointer", "int", "pointer"]));
 
   // tslint:disable-next-line:only-arrow-functions

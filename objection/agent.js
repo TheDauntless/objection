@@ -1,5 +1,5 @@
 📦
-871409 /src/index.js
+871406 /src/index.js
 ✄
 var __defProp = Object.defineProperty;
 var __export = (target, all2) => {
@@ -26795,7 +26795,7 @@ var sSLCtxSetCustomVerify = (ident) => {
       quiet2,
       colors2.blackBright(`[${ident}] `) + `Called ` + colors2.green(`SSL_CTX_set_custom_verify()`) + `, setting custom callback.`
     );
-    setCustomVerify(ssl, mode, customVerifyCallback);
+    setCustomVerify(ssl, 0, customVerifyCallback);
   }, "void", ["pointer", "int", "pointer"]));
   Interceptor.replace(getPskIdentity, new NativeCallback(function(ssl) {
     qsend(
