@@ -1,5 +1,5 @@
 📦
-871405 /src/index.js
+871413 /src/index.js
 ✄
 var __defProp = Object.defineProperty;
 var __export = (target, all2) => {
@@ -26776,7 +26776,7 @@ var nwTlsCreatePeerTrust = (ident) => {
 var sSLCtxSetCustomVerify = (ident) => {
   const getPskIdentity = libObjc.SSL_get_psk_identity;
   let setCustomVerify = libObjc.SSL_set_custom_verify;
-  if (setCustomVerify.isNull()) {
+  if (setCustomVerify.isNull() || true) {
     send(colors2.blackBright(`SSL_set_custom_verify not found, trying SSL_CTX_set_custom_verify`));
     setCustomVerify = libObjc.SSL_CTX_set_custom_verify;
   }
