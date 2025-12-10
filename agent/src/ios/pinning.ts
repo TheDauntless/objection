@@ -450,7 +450,7 @@ const nwTlsCreatePeerTrust = (ident: number): InvocationListener | null => {
 // SSL_CTX_set_custom_verify
 const sSLCtxSetCustomVerify = (ident: number): NativePointerValue[] => {
   const getPskIdentity = libObjc.SSL_get_psk_identity;
-  let setCustomVerify = libObjc.SSL_set_custom_verify;
+  let setCustomVerify = libObjc.SSL_CTX_set_custom_verify;
   if (setCustomVerify.isNull()) {
     send(c.blackBright(`SSL_set_custom_verify not found, trying SSL_CTX_set_custom_verify`));
     setCustomVerify = libObjc.SSL_CTX_set_custom_verify;
