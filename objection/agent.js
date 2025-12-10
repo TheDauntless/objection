@@ -1,5 +1,5 @@
 📦
-871406 /src/index.js
+871526 /src/index.js
 ✄
 var __defProp = Object.defineProperty;
 var __export = (target, all2) => {
@@ -26790,7 +26790,8 @@ var sSLCtxSetCustomVerify = (ident) => {
     );
     return 0;
   }, "int", ["pointer", "pointer"]);
-  Interceptor.replace(setCustomVerify, new NativeCallback(function(ssl, mode, callback) {
+  var ctx_verify_handle = Process.getModuleByName("libboringssl.dylib").getExportByName("SSL_CTX_set_custom_verify");
+  Interceptor.replace(ctx_verify_handle, new NativeCallback(function(ssl, mode, callback) {
     qsend(
       quiet2,
       colors2.blackBright(`[${ident}] `) + `Called ` + colors2.green(`SSL_CTX_set_custom_verify()`) + `, setting custom callback.`
