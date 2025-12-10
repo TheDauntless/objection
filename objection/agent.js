@@ -1,5 +1,5 @@
 📦
-872262 /src/index.js
+871569 /src/index.js
 ✄
 var __defProp = Object.defineProperty;
 var __export = (target, all2) => {
@@ -26799,20 +26799,6 @@ var sSLCtxSetCustomVerify = (ident) => {
     qsend(quiet2, customVerifyCallback);
     setCustomVerify(ssl, 0, customVerifyCallback);
   }, "void", ["pointer", "int", "pointer"]));
-  var boringssl_context_set_verify_mode_handle = Process.getModuleByName("libboringssl.dylib").getExportByName("boringssl_context_set_verify_mode");
-  if (boringssl_context_set_verify_mode_handle) {
-    var boringssl_context_set_verify_mode = new NativeFunction(boringssl_context_set_verify_mode_handle, "int", ["pointer", "pointer"]);
-    Interceptor.replace(
-      boringssl_context_set_verify_mode_handle,
-      new NativeCallback(function(a, b) {
-        qsend(
-          quiet2,
-          colors2.blackBright(`[${ident}] `) + `Called ` + colors2.green(`boringssl_context_set_verify_mode`) + `, returning 0.`
-        );
-        return 0;
-      }, "int", ["pointer", "pointer"])
-    );
-  }
   Interceptor.replace(getPskIdentity, new NativeCallback(function(ssl) {
     qsend(
       quiet2,

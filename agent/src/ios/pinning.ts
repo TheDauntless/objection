@@ -482,25 +482,25 @@ const sSLCtxSetCustomVerify = (ident: number): NativePointerValue[] => {
     setCustomVerify(ssl, 0, customVerifyCallback);
   }, "void", ["pointer", "int", "pointer"]));
 
-  var boringssl_context_set_verify_mode_handle = Process.getModuleByName("libboringssl.dylib").getExportByName("boringssl_context_set_verify_mode");
-   if (boringssl_context_set_verify_mode_handle) {
-      var boringssl_context_set_verify_mode = new NativeFunction(boringssl_context_set_verify_mode_handle, 'int', ['pointer', 'pointer']);
+  // var boringssl_context_set_verify_mode_handle = Process.getModuleByName("libboringssl.dylib").getExportByName("boringssl_context_set_verify_mode");
+  //  if (boringssl_context_set_verify_mode_handle) {
+  //     var boringssl_context_set_verify_mode = new NativeFunction(boringssl_context_set_verify_mode_handle, 'int', ['pointer', 'pointer']);
 
-      Interceptor.replace(
-          boringssl_context_set_verify_mode_handle,
-          new NativeCallback(function (a, b) {
-               qsend(quiet,
-                c.blackBright(`[${ident}] `) + `Called ` +
-                c.green(`boringssl_context_set_verify_mode`) +
-                `, returning 0.`,
-              );
-              // console.log('[*] Called boringssl_context_set_verify_mode()');
-              return 0;
-          }, 'int', ['pointer', 'pointer'])
-      );
+  //     Interceptor.replace(
+  //         boringssl_context_set_verify_mode_handle,
+  //         new NativeCallback(function (a, b) {
+  //              qsend(quiet,
+  //               c.blackBright(`[${ident}] `) + `Called ` +
+  //               c.green(`boringssl_context_set_verify_mode`) +
+  //               `, returning 0.`,
+  //             );
+  //             // console.log('[*] Called boringssl_context_set_verify_mode()');
+  //             return 0;
+  //         }, 'int', ['pointer', 'pointer'])
+  //     );
         
-      // console.log('[+] boringssl_context_set_verify_mode() hook installed.')
-  }
+  //     // console.log('[+] boringssl_context_set_verify_mode() hook installed.')
+  // }
 
 
   // tslint:disable-next-line:only-arrow-functions
